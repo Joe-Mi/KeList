@@ -1,0 +1,5 @@
+this my first react app, its served by an express app. 
+
+To run it, within the project folder, type:
+
+node index.js
