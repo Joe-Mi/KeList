@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext.jsx';
 
-function ListDetails(list) {
-    const {  addItemToList, removeItemFromList } = useUserContext();
+function ListDetails() {
+    const { lists ,addItemToList, removeItemFromList } = useUserContext();
 
     const [itemName, setItemName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [unit, setUnit] = useState('');
     const [notes, setNotes] = useState('');
 
+    const location = useLocation();
+    const { list } = location.state || {};
 
-    async function addItem() {
+    const currentList = lists.find(l => l.id === list.id);
+
+    async function addItem(e) {
+        e.preventDefault();
         if (!itemName.trim()) return;
 
         await addItemToList(list.id, {
@@ -29,7 +35,7 @@ function ListDetails(list) {
         <div className="listDetails">
             <div>
                 <ul>
-                    {list.items.map((item, i) => (
+                    {currentList.items.map((item, i) => (
                         <li key={i}>
                             {item.name} — {item.quantity} {item.unit}
                             <button onClick={() => removeItemFromList(list.id, item.id)}>
@@ -60,7 +66,7 @@ function ListDetails(list) {
                     />
                     <input
                         placeholder="notes..."
-                        value={unit}
+                        value={notes}
                         onChange={e => setNotes(e.target.value)}
                     />
                     <button type="submit">

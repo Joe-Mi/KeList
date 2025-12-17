@@ -1,49 +1,48 @@
 
 module.exports = (sequelize, DataTypes) => {
     const ListItem = sequelize.define(
-        "ListItem",
-        {
-            id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
-                primaryKey: true,
-            },
-            list_id: {
-                type: DataTypes.UUID,
-                allowNull: false,
-            },
-            item_id: {
-                type: DataTypes.UUID,
-                allowNull: false,
-            },
-            quantity: DataTypes.DECIMAL,
-            unit: DataTypes.STRING,
-            is_completed: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
-            },
-            notes: DataTypes.TEXT,
+      'ListItem',
+      {
+        id: {
+          type: DataTypes.UUID,
+          defaultValue: DataTypes.UUIDV4,
+          primaryKey: true,
         },
-        {
-            indexes: [
-                {
-                    unique: true,
-                    fields: ['list_id', 'item_id'],
-                },
-            ]
+        list_id: {
+          type: DataTypes.UUID,
+          allowNull: false,
         },
-        {
-            tableName: 'list_items',
-            timestamps: true,
-            createdAt: 'created_at',
-            updatedAt: false,
-        }
+        item_id: {
+          type: DataTypes.UUID,
+          allowNull: false,
+        },
+        quantity: DataTypes.DECIMAL,
+        unit: DataTypes.STRING,
+        is_completed: {
+          type: DataTypes.BOOLEAN,
+          defaultValue: false,
+        },
+        notes: DataTypes.TEXT,
+      },
+      {
+        tableName: 'list_items', 
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: false,
+        indexes: [
+          {
+            unique: true,
+            fields: ['list_id', 'item_id'],
+          },
+        ],
+      }
     );
-
+  
     ListItem.associate = (models) => {
-        ListItem.belongsTo(models.List, {foreignKey: 'list_id'});
-        ListItem.belongsTo(models.Item, {foreignKey: 'item_id'});
+      ListItem.belongsTo(models.List, { foreignKey: 'list_id' });
+      ListItem.belongsTo(models.Item, { foreignKey: 'item_id' });
     };
-
+  
     return ListItem;
-}
+  };
+  

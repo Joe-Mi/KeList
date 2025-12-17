@@ -1,10 +1,10 @@
-const API_URL = `http://localhost:5000`;
+const API_URL = `http://localhost:5000/lists`;
 
 function authHeaders() {
   const token = localStorage.getItem('token');
   return {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
+    'Authorization': `Bearer ${token}`
   };
 }
 
@@ -18,7 +18,7 @@ export async function fetchLists() {
 }
 
 export async function createList(userId, list) {
-    const res = await fetch(`${API_URL}/lists/newList`, {
+    const res = await fetch(`${API_URL}/newList`, {
         method: 'POST',
         headers: authHeaders(),
         body: JSON.stringify(list),
@@ -29,7 +29,7 @@ export async function createList(userId, list) {
 }
 
 export async function addItem(listId, rawEntry) {
-    const res = await fetch(`${API_URL}/lists/${listId}/items`, {
+    const res = await fetch(`${API_URL}/${listId}/items`, {
         method: 'POST',
         headers: authHeaders(),
         body: JSON.stringify({ rawEntry }),
@@ -40,7 +40,7 @@ export async function addItem(listId, rawEntry) {
 }
 
 export async function removeItem(listId, itemId) {
-  const res = await fetch(`${API_URL}/lists/items/`, {
+  const res = await fetch(`${API_URL}/list/item`, {
     method: 'DELETE',
     headers: authHeaders(),
     body: JSON.stringify({ list_id: listId, item_id: itemId}),

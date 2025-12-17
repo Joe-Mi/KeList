@@ -7,9 +7,7 @@ function LoginForm({ login }) {
 
     function handleLogin(e) {
         e.preventDefault();
-
         const user = {name, password};
-
         login(user);
         seterroMsg('');
     }

@@ -13,7 +13,7 @@ function ListCard({ list}) {
                     </li>
                 ))}
             </ul>
-            <button onClick={() =>navigate('/viewList', { list: list })}>
+            <button onClick={() =>navigate('/viewList', { state: { list } })}>
                 view
             </button>
         </div>

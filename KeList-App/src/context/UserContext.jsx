@@ -27,8 +27,6 @@ export function UserProvider({ children }) {
             });
             localStorage.setItem('token', data.tk);
             navigate('/home');
-            console.log(data);
-            console.log(user)
         } catch (err) {
             console.error(err.message);
         }

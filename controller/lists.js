@@ -28,13 +28,14 @@ router.get('/user/lists', requireAuth, async (req, res) => {
         quantity: li.quantity,
         unit: li.unit,
         is_completed: li.is_completed,
-        notes: li.notes,
+        notes: '',
       })),
     }));
 
     res.json(response);
   } catch (error) {
-    res.status(401).json({ error: 'Unauthorized' });
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch lists' })
   }
 });
 
@@ -118,7 +119,7 @@ router.post('/newList', requireAuth, async (req, res) => {
   }
 });
 
-router.post('/lists/:listId/items', requireAuth, async (req, res) => {
+router.post('/:listId/items', requireAuth, async (req, res) => {
   const { rawEntry } = req.body;
   const list_id = req.params.listId;
   const user_id = req.user.id;
