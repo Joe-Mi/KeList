@@ -8,9 +8,6 @@ dotenv.config()
 const db = require('../model/index.js');
 const bcrypt = require('bcrypt');
 
-router.get('/', (req, res) => {
-    res.json({ message: "hello world" });
-});
 
 router.post('/SignIn', async (req, res) => {
   try {

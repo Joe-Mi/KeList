@@ -27,8 +27,10 @@ app.use('/lists', listsRouter);
 
 app.use(express.static(path.join(__dirname, 'KeList-App', 'dist')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'KeList-App', 'dist', 'index.html'));
+app.use((req, res) => {
+    res.sendFile(
+        path.join(__dirname, 'KeList-App', 'dist', 'index.html')
+      );
 });
 
 app.listen(port, () => {
