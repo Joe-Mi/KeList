@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useUserContext } from '../context/UserContext.jsx';
 
 function Navbar() {
     const { user } = useUserContext();
 
     return <nav className="navbar">
-        <div className="navbar-brand">
+        <div className="navbar-links">
             <Link to='/Profile'>Profile</Link>
         </div>
         <div className="navbar-links">

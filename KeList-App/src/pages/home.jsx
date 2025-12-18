@@ -105,13 +105,13 @@ function Home() {
             Add item
           </button>
         </div>
-        <ol className='listItems'>
+        <ul className='listItems'>
         { listItems.map((item, index) => (
           <li key={index}>
             {item.name} - {item.quantity} {item.unit} 
           </li>
         ))}          
-        </ol>
+        </ul>
         <button type="submit">Create list</button>
       </form>
       <div className="lists">

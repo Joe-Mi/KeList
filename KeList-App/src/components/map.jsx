@@ -6,8 +6,8 @@ import '../CSS/map.css';
 function Map() {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const center = { lng: 51.505, lat: -0.09 };
-    const [zoom] = useState(13);
+    const center = { lng: 36.817223, lat: -1.286389 };
+    const [zoom] = useState(9);
     const popupInstance = L.popup();
 
     function onMapClick(e) {

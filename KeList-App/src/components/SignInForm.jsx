@@ -26,7 +26,7 @@ function SigninForm({ signIn }) {
     return (
         <div>
             <h3>Sign In</h3>
-            <form onSubmit={handelSignin} className='SigninForm'>
+            <form onSubmit={handelSignin} className='landingForm'>
                 <label htmlFor="name">Username: </label>
                 <input id="name" type="text" placeholder='Your user-name'required
                 onChange={e => setname(e.target.value)}/>

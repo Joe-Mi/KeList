@@ -32,46 +32,39 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.home {
-  width: 80vw;
-  height: 75vh;
-  justify-self: center;
-
+.navbar {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
-  padding: 25px;
-  margin: auto;
-}
-
-.lists{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  width: 60%;
-  height: 90%;
-  overflow-y: scroll;
-}
-
-.list-card {
-  width: 180px;
-  height: 250px;
-
-  padding: 10px;
+  height: 40px;
+  padding: 0 20px;
   margin: 10px;
 
-  border: 3px solid #646cff;
-  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Link container */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 5px;
+}
+
+/* Individual links (optional but recommended) */
+.navbar-links a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  transition: background 0.15s ease;
+}
+
+.navbar-links a:hover {
+  background: rgba(100, 108, 255, 0.15);
 }
 
 .NearYou {
@@ -98,67 +91,305 @@
   margin: auto;
 }
 
-.SigninForm{
+.landingForm{
   display: flex;
   flex-direction: column;
   justify-items: center;
   
   margin: 10px;
   padding: 10px;
+  width: 200px;
+
+  justify-self: center;
 }
 
-.SigninForm button{
+.landingForm button{
   margin-top: 10px;
 }
 
+.home {
+  width: 80vw;
+  height: 74vh;
+  margin: 0 auto;
+  padding: 24px;
 
-.LogInForm {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  
-  margin: 10px;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
 }
 
-.LogInForm button{
-  margin-top: 10px;
-}
-
+/* LEFT PANEL — CREATE LIST */
 .list-adder {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  
-  margin: 10px;
-  padding: 10px;
+  gap: 10px;
 
-  align-items: center;
-  gap: 1rem;                 /* consistent spacing between children */
-  width: 37%;
-  height: 100%;
+  padding: 16px;
+  height: 95%;
+
+  border-radius: 20px;
+  background-color: rgb(26, 26, 26);
+
+  background: rgb(26, 26, 26);
+  border-radius: 12px;
 }
 
+/* Labels */
+.list-adder label {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  align-self: flex-start;
+}
+
+/* Inputs */
+.list-adder input {
+  width: 85%;
+  padding: 5px 6px;
+
+  font-size: 0.9rem;
+  border-radius: 8px;
+  align-self: center;
+}
+
+.list-adder input:focus {
+  outline: none;
+  border-color: #818cf8;
+}
+
+/* Item adder */
 .item-adder {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  
-  margin: 0px;
-  padding: 0px;
+  gap: 8px;
+
+  padding: 12px;
+  border: 1px solid #646cff;
+  border-radius: 12px;
 }
 
-.item-adder button{
-  margin-top: 10px;
+/* Item adder button */
+.item-adder button {
+  padding: 8px;
+
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  background: #646cff;
+  color: white;
 }
 
-.listItems{
-  overflow-y: scroll;
-  height: 20%;
-  width: 100%;
-  padding: 20px;
+.item-adder button:hover {
+  background: #4f56ff;
 }
 
-.list-adder button{
-  margin-top: 10px;
+/* Preview item list */
+.listItems {
+  width: 90%;
+  max-height: 90px;
+  overflow-y: auto;
+
+  background: rgb(26, 26, 26);
+  border-radius: 12px;
+  padding: 10px;
+
+  overflow-y: auto;
+}
+
+.listItems ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Ordered list cleanup */
+.listItems li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  margin-bottom: 10px;
+
+  border-radius: 8px;
+  background-color: #242424;
+  font-size: 0.95rem;
+}
+
+/* Create list button */
+.list-adder > button[type="submit"] {
+  margin-top: 20px;
+  padding: 12px;
+
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  background: #646cff;
+  color: white;
+}
+
+.list-adder > button[type="submit"]:hover {
+  background: #4f56ff;
+}
+
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding: 8px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* List card */
+.list-card {
+  width: 180px;
+  height: 250px;
+
+  padding: 14px;
+
+  border: 3px solid #646cff;
+  border-radius: 20px;
+
+  background: rgba(100, 108, 255, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Layout */
+.listDetails {
+  width: 80vw;
+  height: 74vh;
+  margin: 0 auto;
+  padding: 24px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+
+  border-radius: 12px;
+}
+
+/* Item list container */
+.list_Items {
+  background: rgb(26, 26, 26);
+  border-radius: 12px;
+  padding: 16px;
+
+  overflow-y: auto;
+}
+
+/* Remove default list styling */
+.list_Items ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual item row */
+.list_Items li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  margin-bottom: 10px;
+
+  border-radius: 8px;
+  background-color: #242424;
+  font-size: 0.95rem;
+}
+
+/* Item text */
+.list_Items li span {
+  flex: 1;
+}
+
+/* Delete (X) button */
+.list_Items li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #64748b;
+
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.listItems li button:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Form */
+.listForm {
+  background: rgb(26, 26, 26);
+  border-radius: 12px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Inputs */
+.listForm input {
+  padding: 10px 12px;
+  font-size: 0.9rem;
+
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.listForm input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Add item button */
+.listForm button[type="submit"] {
+  margin-top: 8px;
+
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  background: #6366f1;
+}
+
+.listForm button[type="submit"]:hover {
+  background: #4f46e5;
+}
+
+/* Delete list button */
+.listDetails > div:last-child > button {
+  margin-top: 16px;
+  padding: 10px;
+
+  background: #ef4444;
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.listDetails > div:last-child > button:hover {
+  background: #dc2626;
 }

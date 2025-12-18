@@ -14,7 +14,7 @@ function LoginForm({ login }) {
     return (
         <div>
             <h3>login</h3>
-            <form onSubmit={handleLogin} className='LogInForm'>
+            <form onSubmit={handleLogin} className='landingForm'>
                 <label htmlFor="name">Username: </label>
                 <input id="name" type="text" placeholder='Your user-name'required
                 onChange={e => setname(e.target.value)}/>

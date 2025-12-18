@@ -40,9 +40,10 @@ function ListDetails() {
         setUnit('');
     }
 
+
     return(
         <div className="listDetails">
-            <div>
+            <div className='list_Items'>
                 <ul>
                     {currentList.items.map((item, i) => (
                         <li key={i}>
@@ -55,7 +56,7 @@ function ListDetails() {
                 </ul>
             </div>
             <div>
-                <form onSubmit={addItem}>
+                <form onSubmit={addItem} className='listForm'>
                     <input
                         placeholder="item name"
                         value={itemName}

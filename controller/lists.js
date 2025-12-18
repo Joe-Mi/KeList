@@ -23,6 +23,7 @@ router.get('/user/lists', requireAuth, async (req, res) => {
       title: list.title,
       type: list.type,
       items: list.ListItems.map(li => ({
+        id:li.Item.id,
         name: li.Item.name,
         category: li.Item.category,
         quantity: li.quantity,
@@ -170,7 +171,7 @@ router.post('/:listId/items', requireAuth, async (req, res) => {
       return res.status(409).json({ error: 'Item already exists in list' });
     }
 
-    // 5️Create junction row
+    // Create junction row
     await db.ListItem.create(
       {
         list_id,
@@ -213,6 +214,7 @@ router.delete('/list/item', requireAuth, async (req, res) => {
 
   try {
     // Verify list ownership
+    console.log(`list.id:${list_id}, item.id:${item_id}`)
     const list = await db.List.findOne({
       where: {
         id: list_id,
