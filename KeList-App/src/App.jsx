@@ -9,6 +9,7 @@ import NearYou from './pages/nearYou.jsx'
 import Landing from './pages/landing.jsx'
 import Profile from './pages/profile.jsx'
 import ListDetails from './pages/listDetails.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import './App.css'
 
 function App() {
@@ -20,11 +21,21 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            <Route path='/Home' element={<Home />}/>
-            <Route path='/NearYou' element={<NearYou />}/>
-            <Route path='/Landing' element={<Landing />}/>
-            <Route path='/profile' element={<Profile />}/>
-            <Route path='/viewList' element={<ListDetails />}/>
+            <Route path='/Home' element={
+              <Home />
+            }/>
+            <Route path='/NearYou' element={
+              <NearYou />
+            }/>
+            <Route path='/Landing' element={
+              <Landing />
+            }/>
+            <Route path='/profile' element={
+              <Profile />
+            }/>
+            <Route path='/viewList' element={
+              <ListDetails />
+            }/>
           </Routes>
         </main>
       </div>      

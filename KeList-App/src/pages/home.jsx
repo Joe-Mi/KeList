@@ -1,5 +1,6 @@
 import ListCard from '../components/lists.jsx';
 import { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext.jsx';
 
 function Home() {
@@ -16,6 +17,16 @@ function Home() {
   useEffect(() => {
     loadLists();
   }, []);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/Landing', { replace: true });
+    }
+  }, [user, navigate]);
+
+  if (!user) return null; 
 
   function addItem(e) {
     e.preventDefault();

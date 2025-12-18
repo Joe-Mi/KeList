@@ -1,17 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext.jsx';
 
 function ListDetails() {
-    const { lists ,addItemToList, removeItemFromList } = useUserContext();
+    const { user, lists ,addItemToList, removeItemFromList } = useUserContext();
 
     const [itemName, setItemName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [unit, setUnit] = useState('');
     const [notes, setNotes] = useState('');
 
+    const navigate = useNavigate();
     const location = useLocation();
     const { list } = location.state || {};
+
+    useEffect(() => {
+        if (!user || !list) {
+          navigate('/Landing', { replace: true });
+        }
+    }, [user, list, navigate]);
+    
+    if (!user || !list) return null;
 
     const currentList = lists.find(l => l.id === list.id);
 
