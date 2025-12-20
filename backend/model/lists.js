@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true,
             },
             user_id: {
-                type: DataTypes.STRING,
+                type: DataTypes.UUID,
                 allowNull: false,
             },
             title : {

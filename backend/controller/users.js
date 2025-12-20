@@ -29,8 +29,7 @@ router.post('/SignIn', async (req, res) => {
       id: newUser.id,
       name: newUser.name,
       email: newUser.email,
-      phone_num: newUser.phone_num,
-      tk: token
+      phone_num: newUser.phone_num
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
