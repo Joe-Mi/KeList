@@ -18,6 +18,14 @@ db.sequelize.authenticate()
     .then(() => console.log(" db connected."))
     .catch (err => console.error("Unable to connect to the database:", err));
 
+db.sequelize.sync({ alter: true })
+  .then(() => {
+    console.log("All models were synchronized successfully.");
+  })
+  .catch((err) => {
+    console.error("Model synchronization failed:", err);
+  });
+
 app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
@@ -25,13 +33,13 @@ app.use(logger('dev'));
 app.use('/', userRouter);
 app.use('/lists', listsRouter);
 
-app.use(express.static(path.join(__dirname, 'KeList-App', 'dist')));
+// app.use(express.static(path.join(__dirname, 'KeList-App', 'dist')));
 
-app.use((req, res) => {
-    res.sendFile(
-        path.join(__dirname, 'KeList-App', 'dist', 'index.html')
-      );
-});
+// app.use((req, res) => {
+//     res.sendFile(
+//         path.join(__dirname, 'KeList-App', 'dist', 'index.html')
+//       );
+// });
 
 app.listen(port, () => {
     console.log(`App running on port ${port}, (http://localhost:5000/)`);

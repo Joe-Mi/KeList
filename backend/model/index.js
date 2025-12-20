@@ -8,14 +8,14 @@ const path = require('path');
 // });
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    'kelistdb',
+    'postgres',
+    'postgres',
     {
-      host: process.env.DB_HOST,
+      host: 'db',
       dialect: 'postgres',
     }
-  );
+  ); 
   
 
 const db = {};
