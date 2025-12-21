@@ -30,6 +30,7 @@ services:
     environment:
       NODE_ENV: production
       DATABASE_URL: postgres://postgres:postgres@db:5432/kelist
+      JWT_SECRET_KEY: nmn_jwt_secret_key
     depends_on:
       - db
 
